@@ -3,7 +3,9 @@ package com.example.mathalarm;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,11 +24,15 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private Button btnRegister, btnLogin;
     private FirebaseAuth auth;
+    private SharedPreferences sharedPrefs;
+    private static final String EMAIL_KEY = "key_email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        this.sharedPrefs = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
+        FirebaseApp.initializeApp(this);
 
         initView();
         login();
@@ -72,10 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
                             }
                             else{
-                                Bundle bundle = new Bundle();
-                                bundle.putString("email", emailUser);
-                                bundle.putString("pass", passwordUser);
-                                startActivity(new Intent(LoginActivity.this,MainActivity.class).putExtra("emailpass",bundle));
+                                setSP(emailUser,true);
+                                startActivity(new Intent(LoginActivity.this,MainActivity.class));
                                 finish();
                             }
                         }
@@ -84,5 +89,17 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setSP(String email, Boolean save){
+        SharedPreferences.Editor editor = this.sharedPrefs.edit();
+
+        if(save){
+            editor.putString(EMAIL_KEY,email);
+        }
+        else{
+            editor.remove(EMAIL_KEY);
+        }
+        editor.apply();
     }
 }
