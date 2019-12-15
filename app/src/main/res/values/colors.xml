@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="abuabu">#d2d4db</color>
+    <color name="birumuda">#0100cc</color>
+    <color name="birutua">#2e7d32</color>
+    <color name="putihtulang">#ffffff</color>
+    <color name="putihmangkak">#fcf7f7</color>
+    <color name="skyblue">#81d4fa</color>
+    <color name="black">#000</color>
+    <color name="abumenu">#e6e7e8</color>
+    <color name="kuning">#F9E307</color>
+    <color name="hijau">#8BC34A</color>
+    <color name="merah">#E61d25</color>
 </resources>
