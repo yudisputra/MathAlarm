@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/putihtulang"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/hijau">
+
+        <ImageView
+            android:id="@+id/backFormAlarm"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="7"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/kiri" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Buat Alarm"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subjek Alarm"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/edtSubjekAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jam Alarm"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <TimePicker
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmTimePicker"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:timePickerMode="spinner"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/btnSimpanAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Alarm" />
+
+
+</LinearLayout>
